@@ -1,0 +1,39 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #8acd00;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* main {
+	height: 100vh;
+} */
+
+.content {
+	width: 35vw;
+	height: 70vh;
+	margin: 2rem auto;
+	text-align: justify;
+	font-size: 3rem;
+	filter: blur(2px);
+}
+
+.textInput {
+	border: none;
+	padding: 1rem;
+	border-radius: 1rem;
+	display: block;
+	width: 35vw;
+	margin: auto;
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+/* When the input is selected to write */
+.textInput:focus {
+	outline: none;
+}
