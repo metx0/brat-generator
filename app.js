@@ -1,11 +1,9 @@
 const input = document.querySelector(".textInput");
+// Where the text is displayed
 const content = document.querySelector(".content");
 
 content.textContent = input.value;
-const contentStyles = window.getComputedStyle(content);
-const originalFontSize = contentStyles.getPropertyValue("font-size");
-
-const decrement = 15;
+const originalFontSize = window.getComputedStyle(content).getPropertyValue("font-size");
 
 input.addEventListener("input", (event) => {
 	content.textContent = event.target.value;
@@ -14,13 +12,18 @@ input.addEventListener("input", (event) => {
 		content.style.fontSize = originalFontSize;
 	}
 
-	if (content.scrollHeight > content.clientHeight) {
-		adjustFontSize();
-	}
+	// If the text overflows, adjust the font size
+	adjustFontSize();
 });
 
 function adjustFontSize() {
-	let fontSize = parseInt(contentStyles.getPropertyValue("font-size"));
-	let newFontSize = fontSize - decrement;
-	content.style.fontSize = newFontSize + "px";
+	// While it overflows vertically or horizontally
+	while (content.scrollHeight > content.clientHeight || content.scrollWidth > content.clientWidth) {
+		// Decrease the font size in 1 pixel
+		let fontSize = parseFloat(window.getComputedStyle(content).getPropertyValue("font-size"));
+		fontSize--;
+		content.style.fontSize = fontSize + "px";
+	}
 }
+
+adjustFontSize();

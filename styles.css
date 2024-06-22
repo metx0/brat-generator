@@ -10,14 +10,13 @@ body {
 }
 
 .content {
-	width: 35vw;
+	width: 35%;
 	height: 70vh;
 	margin: 2rem auto;
 	text-align: justify;
-	font-size: 80px;
+	text-align-last: justify;
+	font-size: 10vw;
 	filter: blur(2px);
-	/* Avoid text overflow horizontally */
-	overflow-wrap: break-word;
 }
 
 .textInput {
@@ -27,11 +26,36 @@ body {
 	display: block;
 	width: 35vw;
 	margin: auto;
-	font-size: 1.2rem;
+	font-size: 1.2rem;	
 	text-align: center;
 }
 
 /* When the input is selected to write */
 .textInput:focus {
 	outline: none;
+}
+
+/* Media Queries for different screen sizes */
+@media (max-width: 600px) {
+    .content {
+        width: 70%;
+        height: 50vh;
+        font-size: 1.5vw; 
+    }
+
+    .textInput {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    .content {
+        width: 90%;
+        height: 70vh;
+        font-size: 2vw;
+    }
+
+    .textInput {
+        width: 85vw;
+    }
 }
